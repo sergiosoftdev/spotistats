@@ -1,0 +1,773 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,800;1,800&display=swap');
+
+:root {
+    --bgcolor: #101010;
+    --bgcolor2: #181818;
+    --bgcolor3: #202020;
+    --animation-time: .2s;
+    --borderradius: 10px;
+    --cardwidth: 90%;
+    --indexwidth: 1000px;
+  }
+  
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #FFFFFF #DFE9EB;
+  }
+  
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+    width: 5px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: var(--bgcolor3);
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #B8C0C2;
+  }
+  
+  *::-webkit-scrollbar-track:active {
+    background-color: #B8C0C2;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #FFFFFF;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #FFFFFF;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #E0E0E0;
+  }
+  
+  @keyframes poppingOpacity {
+    0% {
+      opacity: 100%;
+      rotate: 0deg;
+      width: 50dvw;
+    }
+    10% {
+      opacity: 70%;
+      width: 40dvw;
+    }
+    50% {
+      opacity: 100%;
+      width: 45dvw;
+    }
+    60% {
+      opacity: 80%;
+      width: 40dvw;
+    }
+    80% {
+      opacity: 95%;
+      width: 45dvw;
+    }
+    100% {
+      margin-left: 0;
+      opacity: 100%;
+      rotate: 360deg;
+      width: 50dvw;
+    }
+  }
+  
+  @keyframes position {
+    0% {
+      opacity: 0%;
+      margin-left: -50px;
+    }
+    100% {
+      opacity: 100%;
+      margin-left: 0;
+    }
+  }
+  
+  html {
+    overflow: hidden;
+    width: 100dvw;
+    height: 100dvh;
+  }
+  
+  body {
+    overflow: hidden;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: var(--bgcolor);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  form {
+    margin-block-end: 0;
+  }
+  
+  h1 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+  
+  button {
+    background-color: transparent;
+    border: none;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  * {
+    font-family: 'Raleway';
+  }
+  
+  .button-gradient-form {
+    background: linear-gradient(45deg, #ff89f5, #9b6fff);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 50px;
+  }
+  
+  .loginbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 70px;
+    width: 200px;
+    transition: .3s;
+  }
+  
+  .loginbutton h1 {
+    width: 40%;
+    display: flex;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    transition: var(--animation-time);
+  }
+  
+  .loginbutton img {
+    height: 150%;
+  }
+  
+  .loginbutton #arrow {
+    opacity: 0%;
+    height: 80%;
+    transition: var(--animation-time);
+  }
+  
+  .loginbutton:hover {
+    width: 210px;
+  }
+  
+  .loginbutton:hover #arrow {
+    opacity: 100%;
+  }
+  
+  .loginbutton:hover h1 {
+    width: 43%;
+  }
+  
+  .fixedindexelements {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+  
+  .fixedindexelements #index-obj-one {
+    background: linear-gradient(45deg, #b163ff, #7c44ff);
+    position: absolute;
+    border-radius: 50%;
+    width: 20dvw;
+    height: 20dvw;
+    left: -10dvw;
+    top: 50dvh;
+    filter: blur(7dvw);
+    opacity: 20%;
+    z-index: -3;
+  }
+  
+  .fixedindexelements #index-obj-two {
+    background: linear-gradient(45deg, #d240ff, #ffa5f9);
+    position: absolute;
+    border-radius: 50%;
+    width: 20dvw;
+    height: 20dvw;
+    left: 90dvw;
+    top: 30dvh;
+    filter: blur(7dvw);
+    opacity: 20%;
+    z-index: -3;
+  }
+  
+  .fixedindexelements #gradient {
+    position: absolute;
+    z-index: -3;
+    animation: poppingOpacity 20s infinite linear;
+    filter: blur(5dvw);
+  }
+  
+  #noise {
+    width: 100dvw;
+    height: 100dvh;
+    background-image: url("noise.png");
+    opacity: 6%;
+  }
+  
+  .fixedindexelements #fixed-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    z-index: -3;
+    aspect-ratio: 1/1;
+    grid-template-columns: repeat(auto-fit, minmax(15dvw, 20dvw));
+    gap: 0;
+  }
+  
+  .fixedindexelements #fixed-images img {
+    width: 100%;
+    height: 100%;
+    opacity: 5%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+  }
+  
+  .index-section {
+    width: var(--indexwidth);
+    height: 100dvh;
+    display: flex;
+    gap: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .index-section .header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: var(--borderradius);
+  }
+  
+  .index-section .header a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .index-section .header h1 {
+    font-size: calc(var(--indexwidth)/26);
+    transition: 0.3s;
+  }
+  
+  .index-section .header h1:hover {
+    color: rgba( 29, 185, 84, 1);
+  }
+  
+  .index-section .header #headerlist {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 80%;
+  }
+  
+  .index-section .header #headerlist ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+  }
+  
+  .index-section .header #headerlist li {
+    font-size: calc(var(--indexwidth)/55);
+    
+    display: block;
+    color: white;
+
+    flex-direction: column;
+    gap: 20px;
+
+  }
+  
+  .index-section .header #headerlist li .onhoverlist{
+
+    display: none;
+
+  }
+
+  .index-section .header #headerlist li .onhoverlist ol{
+
+    background: var(--bgcolor2);
+    backdrop-filter: blur( 1px );
+    -webkit-backdrop-filter: blur( 1px );
+    border-radius: 10px;
+
+    list-style: disc;
+
+    opacity: 0%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    justify-content: left;
+
+    padding: 20px;
+
+    transition: opacity 0.2s linear;
+
+  }
+
+  .index-section .header #headerlist li .onhoverlist ol li a{
+
+    color: white;
+    font-size: 15px;
+    text-align: left;
+  
+  }
+
+  .index-section .header #headerlist li:hover .onhoverlist{
+
+    display: flex;
+
+    opacity: 100%;
+    padding-top: 20px;
+    cursor:auto;
+
+    visibility: 100%;
+
+    position: absolute;
+
+  }
+
+  .index-section .header #headerlist li:hover .onhoverlist ol{
+
+    opacity: 100%;
+
+  }
+
+  .index-section .header #headerlist li .onhoverlist.active {
+  display: flex;
+  opacity: 100%;
+  padding-top: 20px;
+  cursor: auto;
+  visibility: 100%;
+  position: absolute;
+}
+
+.index-section .header #headerlist li .onhoverlist.active ol {
+  opacity: 100%;
+}
+  
+  .index-section .header .headerbutton {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    animation: 2s position;
+  }
+  
+  .index-section .header .headerbutton img {
+    height: calc(var(--indexwidth)/20);
+    opacity: 50%;
+    transition: .5s;
+  }
+  
+  .index-section .header .headerbutton img:hover {
+    opacity: 100%;
+  }
+  
+  .index-section .loginbuttonindex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    width: 100%;
+    transition: .5s;
+  }
+  
+  .fullsection {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .navsection {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--borderradius);
+    animation: leftFade 2s;
+  }
+  
+  .navsection h1 {
+    color: white;
+    font-size: calc(var(--indexwidth)/20);
+  }
+  
+  .mainsection {
+    height: 80%;
+    width: 100%;
+    border-radius: var(--borderradius);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    animation: leftFade 2s;
+  }
+  
+  .mainsection ol {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0;
+  }
+  
+  .mainsection li {
+    color: white;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: left;
+    font-size: 15px;
+  }
+  
+  .mainsection h1,
+  .mainsection h2 {
+    color: white;
+    text-align: center;
+  }
+  
+  .listcard {
+    width: 80%;
+    padding: 20px;
+    border-radius: var(--borderradius);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+  }
+  
+  .listcard .cardimg {
+    width: 20%;
+  }
+  
+  .listcard .cardimg img {
+    width: calc(var(--cardwidth) / 1.5);
+  }
+  
+  .listcard .cardinfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .listcard .cardinfo ol {
+    list-style-type: disc;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+  }
+  
+  .listcard .cardinfo li {
+  }
+  
+  .listcard .cardinfo #songname {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .listcard .cardinfo #artistname {
+    font-size: 14px;
+    color: white;
+    margin: 0;
+  }
+  
+  
+
+  /* Smartphones start somewhere around here */
+  @media (min-width: 300px) and (max-width: 599px) {
+    :root {
+      --indexwidth: 300px;
+    }
+    .index-section {
+      padding: 10px;
+      width: var(--indexwidth);
+    }
+    .index-section .header h1 {
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .index-section .header #headerlist li {
+
+        font-size: 10px;
+        text-align: center;
+
+    }
+
+    .index-section .header #headerlist ul {
+
+        gap: 5px;
+        padding-inline-start: 10px;
+
+    }
+
+    .mainsection ol{
+
+        gap: 20px;
+    }
+
+    .navsection h1{
+
+        font-size: 25px;
+
+    }
+
+    .listcard{
+
+        gap: 30px;
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .listcard .cardimg{
+
+        height: 50px;
+        width: 20%;
+
+    }
+
+    .listcard .cardimg img{
+
+        width: 50px;
+        height: 50px;
+        aspect-ratio: 1/1;
+
+    }
+
+    .listcard .cardinfo{
+
+        width: 80%;
+
+    }
+
+    .listcard .cardinfo #songname{
+
+        font-size: 12px;
+
+    }
+
+    .listcard .cardinfo #artistname {
+
+        font-size: 10px;
+
+    }
+
+    .index-section .header li {
+      font-size: calc(var(--indexwidth)/26);
+    }
+    .fixedindexelements #fixed-images {
+      grid-template-columns: repeat(auto-fit, 33.33dvw);
+    }
+
+    .index-section .header #headerlist li .onhoverlist ol li a{
+
+      font-size: 10px;
+
+    }
+
+  }
+  
+  /* You might do landscape phones here if your content seems to need it */
+  @media (min-width: 450px) and (max-width: 599px){
+    :root {
+      --indexwidth: 400px;
+    }
+    .index-section {
+      padding: 10px;
+      width: var(--indexwidth);
+    }
+    .index-section .header h1 {
+      font-size: 20px;
+      transition: 0.3s;
+    }
+
+    .index-section .header #headerlist li {
+        text-align: center;
+        font-size: 12px;
+        transition: 0.3s;
+    }
+
+    .index-section .header #headerlist ul {
+
+        gap: 10px;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 10px;
+
+    }
+
+    .listcard .cardimg img{
+
+        width: 60px;
+        height: 60px;
+        aspect-ratio: 1/1;
+
+    }
+
+  }
+  
+  /* Starting into tablets somewhere in here */
+  @media (min-width: 600px) {
+    :root {
+      --indexwidth: 450px;
+    }
+    .index-section {
+      padding: 10px;
+      width: var(--indexwidth);
+    }
+    .index-section .header h1 {
+      font-size: calc(var(--indexwidth)/26.67);
+      transition: 0.3s;
+    }
+
+    .index-section .header #headerlist li {
+        font-size: 13px;
+    }
+
+    .fixedindexelements #fixed-images {
+        grid-template-columns: repeat(auto-fit, 33.33dvw);
+    }
+
+    .index-section .header #headerlist ul {
+
+        gap: 10px;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 30px;
+
+    }
+
+    .listcard{
+
+        gap: 30px;
+
+    }
+
+  }
+  
+  /* Perhaps bigger tablets */
+  @media (min-width: 750px) {
+    :root {
+      --indexwidth: 600px;
+    }
+    .index-section {
+      padding: 10px;
+      width: var(--indexwidth);
+    }
+    .index-section .header h1 {
+      font-size: calc(var(--indexwidth)/26.67);
+      transition: 0.3s;
+    }
+
+    .fixedindexelements #fixed-images {
+        grid-template-columns: repeat(auto-fit, minmax(15dvw, 20dvw));
+    }
+
+    .index-section .header #headerlist li {
+      font-size: 15px;
+  }
+
+    
+  }
+  
+  /* Desktop screen or landscape tablet */
+  @media (min-width: 900px) {
+    :root {
+      --indexwidth: 700px;
+    }
+    .index-section {
+      padding: 10px;
+      width: var(--indexwidth);
+    }
+    .index-section .header h1 {
+      font-size: calc(var(--indexwidth)/26.67);
+      transition: 0.3s;
+    }
+
+    .index-section .loginbuttonindex {
+
+      height: 600px;
+
+    }
+
+  }
+  
+  /* A bit bigger if you need some adjustments around here */
+  @media (min-width: 1100px) {
+    :root {
+      --indexwidth: 800px;
+    }
+    .index-section {
+      padding: 10px;
+      width: var(--indexwidth);
+    }
+    .index-section .header h1 {
+      font-size: calc(var(--indexwidth)/26.67);
+      transition: 0.3s;
+    }
+  }
+  
+  /* Widescreens */
+  @media (min-width: 1500px) {
+    :root {
+      --indexwidth: 1000px;
+    }
+    .index-section {
+      padding: 10px;
+      width: var(--indexwidth);
+    }
+    .index-section .header h1 {
+      font-size: calc(var(--indexwidth)/26.67);
+      transition: 0.3s;
+    }
+    
+  }
+  

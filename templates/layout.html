@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css')}}"
+    />
+    <title>SpotiStats</title>
+
+  </head>
+  <body>
+    <div class="fixedindexelements">
+      <div id="noise"></div>
+
+      <img
+        src="https://framerusercontent.com/images/aDRrbalfiC1TgIiW5cd3ZdU5FBA.png"
+        id="gradient"
+      />
+
+      <div id="index-obj-one"></div>
+      <div id="index-obj-two"></div>
+
+      {% block fixed %} {% endblock %}
+    </div>
+
+    <section class="index-section">
+      <header class="header">
+        <div id="headerlist">
+          <a href="/"><h1>SpotiStats</h1></a>
+
+          <ul>
+            <li>Top Songs
+              <div class="onhoverlist">
+                <ol>
+                  <li><a href="/alltimesongs">Top Songs (All Time)</a></li>
+                  <li><a href="/mediumsongs">Top Songs (Last 6 months)</a></li>
+                  <li><a href="/shortsongs">Top Songs (Last 4 weeks)</a></li>
+                </ol>
+              </div>
+            </li>
+            <li>Top Artists
+              <div class="onhoverlist">
+                <ol>
+                  <li><a href="/alltimeartists">Top Artists (All Time)</a></li>
+                  <li><a href="/mediumartists">Top Artists (Last 6 months)</a></li>
+                  <li><a href="/shortartists">Top Artists (Last 4 weeks)</a></li>
+                </ol>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="headerbutton">
+          <a href="https://www.spotify.com"
+            ><img
+              src="https://www.pngall.com/wp-content/uploads/9/Spotify-Logo.png"
+              alt=""
+          /></a>
+        </div>
+      </header>
+
+      {% block main %} {% endblock main %}
+    </section>
+  </body>
+</html>

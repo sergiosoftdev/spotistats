@@ -1,0 +1,78 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css')}}"
+    />
+    <title>SpotiStats</title>
+  </head>
+  <body>
+    <div class="fixedindexelements">
+      <div id="noise"></div>
+
+      <!--
+
+        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+            <g clip-path="url(#clip0_231_793)"> 
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M50 0H200V50V150L150 200L150 50H0L50 0ZM0 165.067V100L65.067 100L0 165.067ZM100 200H35.7777L100 135.778L100 200Z" fill="url(#paint0_linear_231_793)"/> 
+            </g> 
+            <defs> 
+                <linearGradient id="paint0_linear_231_793" x1="177" y1="-9.23648e-06" x2="39.5" y2="152.5" gradientUnits="userSpaceOnUse"> 
+                    <stop stop-color="#B0B9FF"/> <stop offset="1" stop-color="#E7E9FF"/> </linearGradient> <clipPath id="clip0_231_793"> 
+                        <rect width="200" height="200" fill="white"/> 
+                    </clipPath> 
+            </defs> 
+        </svg>
+
+        -->
+
+      <img
+        src="https://framerusercontent.com/images/aDRrbalfiC1TgIiW5cd3ZdU5FBA.png"
+        id="gradient"
+      />
+
+      <div id="index-obj-one"></div>
+      <div id="index-obj-two"></div>
+    </div>
+
+    <section class="index-section">
+      <header class="header">
+        <div id="headerlist">
+          <a href="/"><h1>SpotiStats</h1></a>
+
+          <ul>
+            <a href="/alltimesongs"><li>Top Songs</li></a>
+            <a href="/alltimeartists"><li>Top Artists</li></a>
+          </ul>
+        </div>
+
+        <div class="headerbutton">
+          <a href="https://www.spotify.com"
+            ><img
+              src="https://www.pngall.com/wp-content/uploads/9/Spotify-Logo.png"
+              alt=""
+          /></a>
+        </div>
+      </header>
+
+      <div class="loginbuttonindex">
+        <form action="{{ url_for('login') }}" method="post">
+          <button>
+            <div class="loginbutton button-gradient-form" id="index-button">
+              <img
+                src="https://www.pngall.com/wp-content/uploads/9/Spotify-Logo.png"
+                alt=""
+              />
+              <h1>Login</h1>
+              <a href=""
+                ><img src="/static/arrow-right.png" alt="" id="arrow"
+              /></a>
+            </div>
+          </button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

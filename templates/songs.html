@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% block fixed %}
+
+<div id="fixed-images">
+  {% for i in songs %} <img src="{{ i["album"]["images"][0]["url"] }}" alt="">
+  {% endfor %}
+</div>
+
+{% endblock %} {% block main %}
+
+<nav class="fullsection">
+  <nav class="navsection">
+    <h1>{{ time }}</h1>
+  </nav>
+
+  <nav class="mainsection">
+    <ol>
+      {% for i in songs %}
+
+      <div class="listcard">
+        <div class="cardimg">
+          <img src="{{ i["album"]["images"][0]["url"] }}" alt="">
+        </div>
+
+        <div class="cardinfo">
+          <li id="songname">{{i["name"]}}</li>
+          <p id="artistname">{{ i["album"]["artists"][0]["name"] }}</p>
+        </div>
+      </div>
+
+      {% endfor %}
+    </ol>
+  </nav>
+</nav>
+
+{% endblock %}

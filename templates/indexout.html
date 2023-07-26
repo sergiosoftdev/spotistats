@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block main %}
+
+<div class="loginbuttonindex">
+  <form action="{{ url_for('login') }}" method="post">
+    <button>
+      <div class="loginbutton button-gradient-form" id="index-button">
+        <img
+          src="https://www.pngall.com/wp-content/uploads/9/Spotify-Logo.png"
+          alt=""
+        />
+        <h1>Login</h1>
+        <a href=""><img src="/static/arrow-right.png" alt="" id="arrow" /></a>
+      </div>
+    </button>
+  </form>
+</div>
+
+{% endblock %}
