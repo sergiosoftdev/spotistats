@@ -6,7 +6,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css')}}"
     />
-    <title>SpotiStats</title>
+    <title>Spostats</title>
 
   </head>
   <body>
@@ -27,7 +27,7 @@
     <section class="index-section">
       <header class="header">
         <div id="headerlist">
-          <a href="/"><h1>SpotiStats</h1></a>
+          <a href="/"><h1>Spostats</h1></a>
 
           <ul>
             <li onclick="toggleHoverList(this)">Top Songs
@@ -54,12 +54,16 @@
         <div class="headerbutton">
           <a href="https://www.spotify.com"
             ><img
-              src="https://www.pngall.com/wp-content/uploads/9/Spotify-Logo.png"
+              src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png"
               alt=""
           /></a>
+          <a href="/logout">
+            {% if "TOKEN_INFO" in session %}
+              <img src="{{ url_for('static', filename='logout.png')}}" alt="">
+            {% endif %}
+          </a>
         </div>
       </header>
-
       
 
       {% block main %} {% endblock main %}

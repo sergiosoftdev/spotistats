@@ -50,7 +50,7 @@ def revoke_token(access_token):
 def index():
 
     if request.method =="GET":
-        return render_template("index.html")
+        return render_template("index.html", session=session)
     else:
         return redirect("/login")
     
@@ -237,7 +237,7 @@ def logout():
             revoke_token(access_token)
 
     # Eliminar el token de acceso almacenado en la sesión
-    session.pop("token_info", None)
+    session.pop("TOKEN_INFO", None)
 
     return redirect("/")
 

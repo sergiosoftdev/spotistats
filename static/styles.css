@@ -384,11 +384,14 @@
     display: flex;
     justify-content: right;
     align-items: center;
+
+    gap: 10px;
+
     animation: 2s position;
   }
   
   .index-section .header .headerbutton img {
-    height: calc(var(--indexwidth)/20);
+    height: calc(var(--indexwidth)/30);
     opacity: 50%;
     transition: .5s;
   }
