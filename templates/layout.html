@@ -30,7 +30,7 @@
           <a href="/"><h1>SpotiStats</h1></a>
 
           <ul>
-            <li>Top Songs
+            <li onclick="toggleHoverList(this)">Top Songs
               <div class="onhoverlist">
                 <ol>
                   <li><a href="/alltimesongs">Top Songs (All Time)</a></li>
@@ -39,7 +39,7 @@
                 </ol>
               </div>
             </li>
-            <li>Top Artists
+            <li onclick="toggleHoverList(this)">Top Artists
               <div class="onhoverlist">
                 <ol>
                   <li><a href="/alltimeartists">Top Artists (All Time)</a></li>
@@ -60,7 +60,25 @@
         </div>
       </header>
 
+      
+
       {% block main %} {% endblock main %}
     </section>
+
+
+
+    <script>
+      function toggleHoverList(element) {
+        var isActive = element.classList.toggle('active');
+  
+        // Ocultar otras listas desplegables cuando se hace clic en un elemento
+        var allHoverItems = document.querySelectorAll('.mobile-hover');
+        allHoverItems.forEach(function(item) {
+          if (item !== element) {
+            item.classList.remove('active');
+          }
+        });
+      }
+    </script>
   </body>
 </html>
