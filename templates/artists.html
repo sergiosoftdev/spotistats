@@ -22,7 +22,12 @@
         </div>
 
         <div class="cardinfo">
-          <li id="songname">{{ i["name"] }}</li>
+          <div class="cardartistinfo">
+            <li id="songname">{{ i["name"] }}</li>
+          </div>
+          <div class="cardinfolink">
+            <a href="{{ i["external_urls"]["spotify"] }}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png" alt=""></a>
+          </div>
         </div>
       </div>
 

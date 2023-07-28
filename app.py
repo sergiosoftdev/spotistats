@@ -60,7 +60,6 @@ def login():
 
     sp_oauth = spotifyauth()
     auth_url = sp_oauth.get_authorize_url()
-    print(auth_url) 
     return redirect(auth_url)
 
 @app.route('/redirectPage')
@@ -71,7 +70,7 @@ def redirectPage():
     token_info = sp_oauth.get_access_token(code)
     session["TOKEN_INFO"] = token_info
 
-    return redirect(url_for("allTimeSongs", _external=True))
+    return redirect(url_for("index", _external=True))
 
 def get_token():
 
@@ -114,7 +113,7 @@ def mediumsongs():
             sp = spotipy.Spotify(auth=user_token['access_token'])
 
             usershortsongs = sp.current_user_top_tracks(limit=25, offset=0, time_range="medium_term")
-            usershortsongs["items"][0]["album"]["images"][0]["url"]
+            print(usershortsongs["items"][0]["external_urls"]["spotify"])
 
             return render_template("songs.html", songs=usershortsongs['items'], time="Top Songs: Last 6 months")
         
@@ -159,19 +158,13 @@ def allTimeArtists():
 
     try:
 
-        if "TOKEN_INFO" in session:
+        user_token = get_token()
+        sp = spotipy.Spotify(auth=user_token['access_token'])
 
-            user_token = get_token()
-            sp = spotipy.Spotify(auth=user_token['access_token'])
+        userlongartists = sp.current_user_top_artists(limit=25, offset=0, time_range="long_term")
+        print(userlongartists["items"])
 
-            userlongartists = sp.current_user_top_artists(limit=25, offset=0, time_range="long_term")
-            print(userlongartists["items"][0]["images"][0]["url"])
-
-            return render_template("artists.html", artists=userlongartists, time="Top Artists: All time")
-
-        else:
-
-            return redirect("/login")
+        return render_template("artists.html", artists=userlongartists, time="Top Artists: All time")
 
     except(spotipy.SpotifyException):
 
